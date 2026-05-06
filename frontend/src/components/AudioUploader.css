@@ -1,0 +1,147 @@
+/* ─── Premium Input Container ───────────────────────────────────────────────── */
+.gemini-input-box {
+  background: white;
+  border-radius: 28px;
+  padding: 12px 16px 12px 24px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gemini-input-box:focus-within {
+  box-shadow: 0 15px 50px rgba(139, 92, 246, 0.12);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* ─── Main Row ─────────────────────────────────────────────────────────────── */
+.input-row-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.gemini-text-input-area {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 1.5;
+  padding: 8px 0;
+  resize: none;
+  min-height: 24px;
+  font-family: inherit;
+}
+
+.gemini-text-input-area::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* ─── Buttons ──────────────────────────────────────────────────────────────── */
+.icon-btn-round {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #f1f5f9;
+  background: #f8fafc;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-btn-round:hover {
+  background: white;
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: scale(1.05);
+}
+
+.plus-btn {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.send-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 8px 15px var(--primary-glow);
+}
+
+.mic-btn.active {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+  animation: pulse-red 1.5s infinite;
+}
+
+/* ─── Footer Row ───────────────────────────────────────────────────────────── */
+.input-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.model-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #f1f5f9;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-hint {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* ─── File Chip ────────────────────────────────────────────────────────────── */
+.gemini-file-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0f9ff;
+  color: #0369a1;
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid #bae6fd;
+  margin-bottom: 8px;
+  align-self: flex-start;
+}
+
+.chip-close {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  padding: 2px;
+}
+
+@keyframes pulse-red {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); box-shadow: 0 0 25px rgba(239, 68, 68, 0.6); }
+}

@@ -1,0 +1,86 @@
+.presentation-container {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  height: calc(100vh - 200px); /* Leave space for header AND footer */
+  padding: 0 32px;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.main-panel {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  box-shadow: var(--shadow-premium);
+  overflow-y: auto;
+  border: 1px solid rgba(0,0,0,0.01);
+  display: flex;
+  flex-direction: column;
+}
+
+.side-panel {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--glass-border);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.hero-greeting {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 32px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+/* ─── Chat Thread ────────────────────────────────────────────────────────────── */
+.chat-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 150px;
+}
+
+/* ─── Chat Footer ────────────────────────────────────────────────────────────── */
+.chat-footer-input {
+  position: absolute;
+  bottom: 0;
+  left: 32px; /* Match presentation-container padding */
+  width: calc(100% - 380px - 88px); /* calc based on grid 1fr 380px and gap 24px */
+  padding: 30px 0 40px;
+  background: linear-gradient(to top, rgba(255,255,255,0.95) 70%, transparent);
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+
+.chat-footer-input > div {
+  width: 100%;
+  max-width: 800px;
+}
+
+.footer-disclaimer {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 14px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .presentation-container {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+  .side-panel {
+    display: none;
+  }
+}
