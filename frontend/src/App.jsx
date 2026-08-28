@@ -29,7 +29,7 @@ export default function App() {
   useEffect(() => {
     const cleanup = () => {
       if (role === 'guest') {
-        const apiUrl = import.meta.env.VITE_API_URL || '';
+        const apiUrl = 'https://asr-backend-api.onrender.com';
         navigator.sendBeacon(`${apiUrl}/api/jobs/guest/cleanup`)
       }
     }
