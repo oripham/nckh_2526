@@ -17,7 +17,7 @@ import ProfilePage from './pages/ProfilePage'
 
 export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
-  const { token, fetchRecentJobs } = useAppStore()
+  const { user, token, fetchRecentJobs } = useAppStore()
 
   useEffect(() => {
     if (token) {
@@ -28,14 +28,14 @@ export default function App() {
   // Auto-cleanup guest data when closing browser tab
   useEffect(() => {
     const cleanup = () => {
-      if (role === 'guest') {
+      if (user?.role === 'guest') {
         const apiUrl = 'https://asr-backend-api.onrender.com';
         navigator.sendBeacon(`${apiUrl}/api/jobs/guest/cleanup`)
       }
     }
     window.addEventListener('beforeunload', cleanup)
     return () => window.removeEventListener('beforeunload', cleanup)
-  }, [role])
+  }, [user])
 
   return (
     <div className={`app-layout ${sidebarOpen ? 'sidebar-open' : ''}`}>
