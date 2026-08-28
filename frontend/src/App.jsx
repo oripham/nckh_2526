@@ -28,14 +28,14 @@ export default function App() {
   // Auto-cleanup guest data when closing browser tab
   useEffect(() => {
     const cleanup = () => {
-      if (!token) {
-        // Use sendBeacon for reliability (works even when tab is closing)
-        navigator.sendBeacon('/api/jobs/guest/cleanup')
+      if (role === 'guest') {
+        const apiUrl = import.meta.env.VITE_API_URL || '';
+        navigator.sendBeacon(`${apiUrl}/api/jobs/guest/cleanup`)
       }
     }
     window.addEventListener('beforeunload', cleanup)
     return () => window.removeEventListener('beforeunload', cleanup)
-  }, [token])
+  }, [role])
 
   return (
     <div className={`app-layout ${sidebarOpen ? 'sidebar-open' : ''}`}>
