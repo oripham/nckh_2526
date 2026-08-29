@@ -213,3 +213,87 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* ── RESPONSIVE & MOBILE STYLES (MOBILE-FIRST ADAPTATIONS) ─────────────────── */
+@media (max-width: 768px) {
+  .app-layout {
+    padding: 0;
+    gap: 0;
+  }
+
+  /* Off-canvas sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Hidden by default */
+    height: 100vh;
+    z-index: 1000;
+    border-radius: 0;
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .main-content {
+    border-radius: 0;
+    border: none;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .presentation-container {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    height: calc(100% - 70px); /* Adjust for footer */
+    gap: 12px;
+    overflow-y: auto;
+  }
+
+  .main-panel {
+    padding: 16px;
+    height: auto;
+    min-height: 50vh;
+  }
+
+  .side-panel {
+    padding: 16px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .chat-card {
+    max-width: 95%;
+    padding: 16px;
+  }
+}
+
+/* ── TOUCH TARGETS (APPLE HIG STANDARDS) ─────────────────────────────────────── */
+.chip, .btn-primary, .icon-btn, .menu-btn {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

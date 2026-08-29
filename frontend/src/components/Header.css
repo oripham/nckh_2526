@@ -102,3 +102,27 @@
   border: 1px solid var(--glass-border) !important;
   box-shadow: 0 20px 50px rgba(0,0,0,0.15) !important;
 }
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .gemini-header {
+    padding: 0 12px;
+    height: 60px;
+  }
+  .header-brand {
+    font-size: 20px;
+  }
+  .header-center {
+    display: none;
+  }
+  .header-login-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  .header-left {
+    gap: 8px;
+  }
+  .header-right {
+    gap: 8px;
+  }
+}

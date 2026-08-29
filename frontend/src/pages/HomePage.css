@@ -83,4 +83,29 @@
   .side-panel {
     display: none;
   }
+  .chat-footer-input {
+    width: calc(100% - 64px);
+  }
+}
+
+@media (max-width: 768px) {
+  .presentation-container {
+    padding: 12px;
+    margin-top: 12px;
+    height: calc(100vh - 160px);
+  }
+  .main-panel {
+    padding: 16px;
+    border-radius: var(--radius-md);
+  }
+  .hero-greeting {
+    font-size: 2rem;
+  }
+  .chat-footer-input {
+    width: 100%;
+    left: 0;
+    padding: 16px 12px 24px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+  }
 }
